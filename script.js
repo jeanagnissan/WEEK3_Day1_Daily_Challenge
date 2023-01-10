@@ -1,66 +1,41 @@
+/**
+ * @author:  AGNISSAN JEAN
+ */
+
+/* **************** Daily Challenge ***************** */
+
+function displayPlanets() {
 
 
-/*
-Exercice 
-*/
-console.log(`---------------  Exercice --------------`);
+  //Créez un tableau contenant les planètes du système solaire :
+  let planets = ["Mercure", "Vénus", "la Terre", "Mars", "Ceres", "Jupiter", "Saturne", "Uranus", "Neptune", "Pluton", "Charon"];
 
+  //Ajoutez une classe de couleur de fond différente à chaque div de planète :
 
-// 1- Créez un tableau dont la valeur est les planètes du système solaire.
-const planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'];
+  let planetsColors = ["white", "red", "orange", "pink", "grey", "yellow", "blue", "brown", "aqua", "purple", "green"];
 
-// 2- Pour chaque planète du tableau, créez un <div> fichier using createElement. Cette div doit avoir une classe nommée "planet".
-const section = document.querySelector('.listPlanets');
+  let planetContainer = document.querySelector(".listPlanets");
+  planetContainer.style.display = "flex";
+  planetContainer.style.flexWrap = "wrap";
 
-// for (let i = 0; i < planets.length; i++) {
-//     const element = array[i];
-    
-// }
+  //Créez une div pour chaque planète en utilisant la méthode createElement et en lui attribuant la classe planet :
+  for(let i = 0; i < planets.length; i++) {
+      
+      let div = document.createElement("div");
+      
+      //Ajoutez chaque div de planète au <section> dans le HTML :
 
-planets.forEach(planet => {
-  const div = document.createElement('div');
-  div.style.margin = '10px';
+      let divName = document.createTextNode(planets[i]);
+      div.appendChild(divName);
+      div.classList.add("planet");
+      div.style.background = planetsColors[i];
+      div.style.margin = "5px";
+      div.style.fontWeight = "bold";
+      planetContainer.appendChild(div);
 
-  div.classList.add('planet');
+  }
 
-  if (planet === 'Mercury') {
-    div.style.backgroundColor = '#F5A623';
-  } else if (planet === 'Venus') {
-    div.style.backgroundColor = '#FF7300';
-  } else if (planet === 'Earth') {
-    div.style.backgroundColor = '#6552f2';
-  } else if (planet === 'Mars') {
-    div.style.backgroundColor = '#f76c6c';
-  } else if (planet === 'Jupiter') {
-    div.style.backgroundColor = '#edde40';
-  } else if (planet === 'Saturn') {
-    div.style.backgroundColor = '#e55ecc';
-  } else if (planet === 'Uranus') {
-    div.style.backgroundColor = '#d381ea';
-  } else if (planet === 'Neptune') {
-    div.style.backgroundColor = '#5fef6e';
-  } else if (planet === 'Pluto') {
-    div.style.backgroundColor = '#64e5da';
-  } 
+}
 
-  div.innerHTML = planet;
-
-  section.appendChild(div);
-});
-
-// 3- Pour chaque planète du tableau, créez un <div>fichier using createElement. Cette div doit avoir une classe nommée "planet".
-// voir question 2
-
-// 4- Enfin, ajoutez chaque div au <section> dans le HTML (présenté ci-dessous).
-// voir question 2
-
-
-/* 5- Bonus : Faites le même processus pour créer les lunes.
-    Attention, chaque planète possède un certain nombre de lunes. Comment devez-vous les afficher ?
-    Faut-il encore utiliser un tableau pour les planètes ? Ou un tableau d'objets ?
-*/
-
-
-
-
+displayPlanets();
 
